@@ -11,14 +11,29 @@ const routes = [
     component: Home
   },
   {
+    path: '/secure/user',
+    name: "Admin User",
+    component: () => import('../views/admin/User.vue') 
+  },
+  {
     path: '/catalog',
     name: 'Catalog',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Catalog.vue')
+    component: () => import('../views/Catalog.vue') // Lazy load
+  },
+  {
+    path: '/catalog/new',
+    name: 'New Product',
+    component: () => import('../views/NewProduct.vue')
+  },
+  {
+    path: '/client',
+    name: 'Client',
+    component: () => import('../views/Clients.vue')
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/About.vue')
   }
 ]
 

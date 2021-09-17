@@ -10,7 +10,7 @@
     <v-divider></v-divider>
 
     <v-list dense nav v-if="isAdmin">
-      <v-list-item v-for="item in adminItems" :key="item.title" link>
+      <v-list-item v-for="item in adminItems" :key="item.title" link :to="item.path">
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
@@ -22,7 +22,7 @@
     </v-list>
 
     <v-list dense nav>
-      <v-list-item v-for="item in items" :key="item.title" link>
+      <v-list-item v-for="item in items" :key="item.title" link :to="item.path">
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
@@ -43,13 +43,12 @@ export default {
     return {
       subtitle: "Menu principal",
       adminItems: [
-          { title: "Gestion Productos", icon: "mdi-archive-settings" },
-          { title: "Gestion Clientes", icon: "mdi-account-circle" },
+          { title: "Gestion Productos", icon: "mdi-archive-settings" , path: "/catalog"},
+          { title: "Gestion Clientes", icon: "mdi-account-circle", path: "/client" },
           ],
       items: [
-        { title: "Inicio", icon: "mdi-home" },
-        { title: "Fotos", icon: "mdi-image" },
-        { title: "Acerca de", icon: "mdi-help-box" },
+        { title: "Inicio", icon: "mdi-home", path: "/" },
+        { title: "Acerca de", icon: "mdi-help-box", path: "/about" },
       ],
     };
   },
